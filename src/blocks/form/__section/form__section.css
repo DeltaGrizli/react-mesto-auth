@@ -1,0 +1,9 @@
+.form__section {
+    display: flex;
+    flex-direction: column;
+    min-height: 60px;
+} 
+
+.form__section:nth-last-of-type(1) {
+    margin-bottom: 22px;
+} 

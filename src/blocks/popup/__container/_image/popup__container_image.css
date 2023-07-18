@@ -1,0 +1,11 @@
+.popup__container_image{
+    max-width: fit-content;
+    background: none;
+    border-radius: 0;
+}
+@media (max-width: 650px) {
+    .popup__container_image{
+        min-width: 150px;
+        max-width: 600px;
+    }
+}

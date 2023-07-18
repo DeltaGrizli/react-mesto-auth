@@ -1,0 +1,7 @@
+.elements__container {
+    display: flex;
+    margin: 25px 15px 22px 15px;
+    padding-right: 5px;
+    max-width: 246px;
+    justify-content: space-between;
+}
