@@ -33,11 +33,31 @@ function Login(props) {
                 <h1 className="form-in__title">Вход</h1>
                 <form className="form-in__form" onSubmit={handleSubmit}>
                     <section className="form-in__section">
-                        <input type="text" className="form-in__input" id="email_sign-in" name="email_sign-in" placeholder="Email" required minLength="2" maxLength="40" onChange={handleChangeEmail} />
+                        <input
+                         type="text" 
+                         className="form-in__input" 
+                         id="email_sign-in" 
+                         name="email_sign-in" 
+                         placeholder="Email" 
+                         required 
+                         minLength="2" 
+                         maxLength="40" 
+                         onChange={handleChangeEmail}
+                         value={email || ''} />
                         <span className="form-in__input-error"></span>
                     </section>
                     <section className="form-in__section">
-                        <input type="password" className="form-in__input" id="password_sign-in" name="password_sign-in" placeholder="Пароль" required minLength="2" maxLength="200" onChange={handleChangePassword} value={password || ''}/>
+                        <input 
+                        type="password" 
+                        className="form-in__input" 
+                        id="password_sign-in" 
+                        name="password_sign-in" 
+                        placeholder="Пароль" 
+                        required 
+                        minLength="2" 
+                        maxLength="200" 
+                        onChange={handleChangePassword} 
+                        value={password || ''}/>
                         <span className="form-in__input-error"></span>
                     </section>
                     <button type="submit" className="form-in__submit">Войти</button>

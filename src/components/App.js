@@ -235,22 +235,6 @@ function App() {
             <Route path="/sign-up" element={loggedIn ? <Navigate to="/" replace /> : <Register onRegisterUser={handleSubmitRegister} />} />
           </Routes>
           {loggedIn ? <Footer /> : ''}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <ImagePopup
             card={selectedCard}
             onClose={closeAllPopups}
@@ -270,6 +254,11 @@ function App() {
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
             onUpdate={handleUpdateUserInfo}
+          />
+          <InfoTooltip
+            isOpen={isInfoTooltipOpen}
+            onClose={closeAllPopups}
+            isRightRegistration={isRightRegistration}
           />
           {/* <PopupDeleteCard
             onClose={closeAllPopups}
