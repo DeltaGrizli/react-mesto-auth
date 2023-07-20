@@ -1,29 +1,37 @@
-class Api{
+class Api {
     constructor({ baseUrl, headers }) {
         this.baseUrl = baseUrl
         this.headers = headers;
-      }
+    }
 
-      _checkStatus(response) {
+    setToken(jwt) {
+        this.headers = {
+            authorization: jwt,
+            'Content-Type': 'application/json'
+        }
+        console.log(this.headers)
+    }
+
+    _checkStatus(response) {
         if (response.ok) {
-          return response.json();
+            return response.json();
         }
         throw new Error(`Error ${response.status}`);
-      }
+    }
 
     getInitialCards() {
         return fetch(this.baseUrl + '/cards', {
             method: 'GET',
             headers: this.headers
         })
-          .then(this._checkStatus)
-      } 
-      getUserInfo() {
+            .then(this._checkStatus)
+    }
+    getUserInfo() {
         return fetch(this.baseUrl + '/users/me', {
             method: 'GET',
             headers: this.headers
         })
-        .then(this._checkStatus)
+            .then(this._checkStatus)
     }
 
     postNewCard({ name, link }) {
@@ -35,15 +43,15 @@ class Api{
                 link: link
             })
         })
-        .then(this._checkStatus)
+            .then(this._checkStatus)
     }
 
-    deleteCard(cardId){
+    deleteCard(cardId) {
         return fetch(`${this.baseUrl}/cards/${cardId}`, {
             method: "DELETE",
             headers: this.headers,
         })
-        .then(this._checkStatus)
+            .then(this._checkStatus)
     }
 
     patchUserInfo({ name, about }) {
@@ -55,10 +63,10 @@ class Api{
                 about: about
             })
         })
-        .then(this._checkStatus)
+            .then(this._checkStatus)
     }
 
-    patchAvatarInfo({avatar}) {
+    patchAvatarInfo({ avatar }) {
         return fetch(this.baseUrl + '/users/me/avatar', {
             method: 'PATCH',
             headers: this.headers,
@@ -66,7 +74,7 @@ class Api{
                 avatar: avatar
             })
         })
-        .then(this._checkStatus)
+            .then(this._checkStatus)
     }
 
     putLike(cardId) {
@@ -74,7 +82,7 @@ class Api{
             method: "PUT",
             headers: this.headers
         })
-        .then(this._checkStatus)
+            .then(this._checkStatus)
     }
 
     deleteLike(cardId) {
@@ -82,14 +90,14 @@ class Api{
             method: "DELETE",
             headers: this.headers
         })
-        .then(this._checkStatus)
+            .then(this._checkStatus)
     }
 }
 
 export const api = new Api({
     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
     headers: {
-      authorization: 'fef5ea78-b931-498d-bcf8-69e7812850f6',
-      'Content-Type': 'application/json'
+        authorization: 'fef5ea78-b931-498d-bcf8-69e7812850f6',
+        'Content-Type': 'application/json'
     }
-  })
+})
